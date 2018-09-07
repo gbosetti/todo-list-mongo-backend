@@ -1,5 +1,6 @@
 # todo-list-mongo-backend
 Backend with express and mongodb for https://github.com/gbosetti/todo-list-with-angular-6
+It could be used interchangeably with https://github.com/gbosetti/todo-list-jsonserver-backend
 
 ## Setup
 
