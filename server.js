@@ -26,6 +26,14 @@ MongoClient.connect("mongodb://localhost:27017/items", { useNewUrlParser: true }
 app.get("/todos", function(req, res) {
   db.collection("items").find().toArray(function (error, results) {
       if (error) throw error;
+
+      //This mapping makes this web service compatible with the json_server version
+      results.map(item => {
+
+        item.id = item._id; 
+        delete item['_id'];
+        return item;
+      });
       res.send(results);
     });                
 });
