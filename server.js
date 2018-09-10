@@ -23,7 +23,7 @@ MongoClient.connect("mongodb://localhost:27017/items", { useNewUrlParser: true }
 });
 
 // Getting all the items
-app.get("/todos", function(req, res) {
+app.get("/items", function(req, res) {
   db.collection("items").find().toArray(function (error, results) {
       if (error) throw error;
 
@@ -39,7 +39,7 @@ app.get("/todos", function(req, res) {
 });
 
 // Inserting a new item
-app.post('/todos', (req, res, next) => {
+app.post('/items', (req, res, next) => {
     
   //To avoid anything else to be injected
   var item = { name: req.body.name };
@@ -50,7 +50,7 @@ app.post('/todos', (req, res, next) => {
   });
 });
 
-app.delete('/todos/:id', (req, res, next) => {
+app.delete('/items/:id', (req, res, next) => {
 
   var itemToDelete = { _id: new ObjectID(req.params.id) };
 
@@ -60,7 +60,7 @@ app.delete('/todos/:id', (req, res, next) => {
   });
 });
 
-app.put('/todos/:id', (req, res, next) => {
+app.put('/items/:id', (req, res, next) => {
 
   var itemToUpdate = { _id: new ObjectID(req.params.id) };
 
